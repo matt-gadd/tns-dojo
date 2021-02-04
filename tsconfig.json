@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+	  "declaration": false,
+	  "emitDecoratorMetadata": true,
+	  "experimentalDecorators": true,
+	  "jsx": "react",
+	  "jsxFactory": "tsx",
+	  "lib": [
+		  "dom",
+		  "es5",
+		  "es2015.iterable",
+		  "es2015.promise",
+		  "es2015.symbol",
+		  "es2015.symbol.wellknown"
+	  ],
+	  "target": "ES2017",
+	  "module": "commonjs",
+	  "moduleResolution": "node",
+	  "noUnusedLocals": true,
+	  "importHelpers": true,
+	  "downlevelIteration": true,
+      "baseUrl": ".",
+      "paths": {
+          "~/*": [
+              "src/*"
+          ]
+      }
+  },
+  "exclude": [
+      "node_modules",
+      "platforms"
+  ]
+}
