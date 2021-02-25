@@ -7,9 +7,6 @@ platforms/
 *.js.map
 *.js
 
-# React NativeScript
-!webpack.config.js
-
 # Logs
 logs
 *.log
