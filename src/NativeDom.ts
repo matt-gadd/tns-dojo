@@ -17,7 +17,8 @@ class DomNode {
     private _parentNode = undefined;
     private _instance = undefined;
     private _attributes = new Map<string, string>();
-    constructor(tagname: string) {
+    constructor(tagname: string, _?: any, properties?: any) {
+		console.log(properties);
         this._tagname = tagname;
         switch (tagname) {
             case "body":
@@ -65,7 +66,12 @@ class DomNode {
             case "ul":
                 this._instance = new StackLayout();
                 break;
+            case "li":
+                this._instance = new StackLayout();
+                break;
             case "span":
+                this._instance = new StackLayout();
+            case "strong":
                 this._instance = new Label();
             default:
                 this._instance = new FlexboxLayout();
@@ -99,7 +105,7 @@ class DomNode {
         if (refNode) {
             const index = this.children.indexOf(refNode);
             this.children.splice(index, 0, newNode);
-            newNode.parentNode = parent;
+            newNode.parentNode = this;
             this.__instance__.insertChild(newNode.__instance__, index);
         } else {
             this.appendChild(newNode);
@@ -161,8 +167,8 @@ class Document {
     constructor() {
         this._body = new DomNode("body");
     }
-    createElement(tagname: string) {
-        return new DomNode(tagname);
+    createElement(tagname: string, _: any, properties: any) {
+        return new DomNode(tagname, _, properties);
     }
     createTextNode(text: string) {
         const node = new DomNode("native-label");
